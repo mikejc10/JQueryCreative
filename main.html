@@ -1,1 +1,81 @@
-test
+<!DOCTYPT html>
+<html>
+<head>
+<title>Number facts</title>
+<script src="https://code.jquery.com/jquery-1.10.2.js"></script>
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+<script
+  src="http://code.jquery.com/jquery-3.2.1.min.js"
+  integrity="sha256-hwg4gsxgFZhOsEEamdOYGBf13FyQuiTwlAQgxVSNgt4="
+  crossorigin="anonymous">
+</script>
+<script>
+    $(document).ready(function() 
+    {
+        $("#submit-input").click(function(e) 
+        {
+            e.preventDefault();
+            var value = $("#num-input").val();
+            console.log(value);
+            var myurl= "http://numbersapi.com/" + value;
+            console.log(myurl);
+            $.ajax({
+                url : myurl,
+                crossDomain: true,
+                dataType : "jsonp",
+                success : function(parsed_json) 
+              {
+                  console.log(parsed_json);
+                  document.getElementById("numresult").innerHTML = parsed_json;
+              }
+            });
+        });
+        $("#Dsubmit-input").click(function(e) 
+        {
+            e.preventDefault();
+            var value = $("#date-input").val();
+            console.log(value);
+            var valueArray = value.split("-");
+            console.log(valueArray);
+            var day = valueArray[2];
+            var month = valueArray[1];
+            var myurl= "http://numbersapi.com/" + month + "/" + day + "/date";
+            console.log(myurl);
+            $.ajax({
+                url : myurl,
+                crossDomain: true,
+                dataType : "jsonp",
+                success : function(parsed_json) 
+              {
+                  console.log(parsed_json);
+                  document.getElementById("dateresult").innerHTML = parsed_json;
+              }
+            });
+        });
+    });
+</script>
+</head>
+<body>
+
+<div>Fun Facts about Numbers and Dates</div>
+<div>
+    <p>Learn more about a number. Click submit repeatedly to learn more about that number!</p>
+    <form>
+        What number would you like to learn about? <input type="number" id="num-input">
+        <br>
+        <input id="submit-input" type="submit" value="Submit">
+    </form>
+    <div id="numresult"></div>
+</div>
+<div>
+    <p>Learn more about a date. Click submit repeatedly to learn more about that date!</p>
+    <form>
+        What date would you like to learn about? <input type="date" id="date-input">
+        <br>
+        <input id="Dsubmit-input" type="submit" value="Submit">
+    </form>
+    <div id="dateresult"></div>
+</div>
+
+</body>
+</html>
