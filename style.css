@@ -1,1 +1,42 @@
-Holder
+body{
+  background-image: url("http://www.freeimageslive.co.uk/image/view/7018/_original");
+}
+.main-header{
+  border: 3px solid yellow;
+  border-radius: 24px;
+  background-color: black;
+  margin: 5px;
+  padding: 4px;
+  opacity: 0.9;
+  color: white;
+  text-align: center;
+}
+
+.my-look{
+  border: 3px solid yellow;
+  border-radius: 24px;
+  background-color: black;
+  margin: 5px;
+  padding: 20px;
+  opacity: 0.9;
+  color: white;
+}
+
+.presentation-text{
+  border: 3px solid yellow;
+  background-color: white;
+  color: black;
+  border-radius: 4px;
+  padding: 5px;
+  margin: 10px;
+  text-align: center;
+}
+
+.expand{
+    -webkit-transition: font 9s; /* For Safari 3.1 to 6.0 */
+    transition: font 9s;
+}
+
+.expand:hover{
+  font-size: 60px;
+}
